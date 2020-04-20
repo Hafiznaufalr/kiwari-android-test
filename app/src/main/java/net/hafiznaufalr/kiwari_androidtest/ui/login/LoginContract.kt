@@ -7,7 +7,7 @@ import net.hafiznaufalr.kiwari_androidtest.ui.base.BaseView
 
 interface LoginContract {
     interface View: BaseView<Presenter>{
-        fun onLoginResponse(data: FirebaseUser?)
+        fun onLoginResponse(uid: String)
         fun onLoginFailure(message: String)
     }
 

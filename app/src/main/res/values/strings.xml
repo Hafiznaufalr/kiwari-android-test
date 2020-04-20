@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Kiwari-AndroidTest</string>
+    <string name="app_name">Chaty</string>
+    <string name="masukan_email_anda">Masukan email anda</string>
+    <string name="masukan_password_anda">Masukan password anda</string>
+    <string name="silahkan_masukkan_email_dan_password_anda">Silahkan Masukkan email dan password Anda</string>
+    <string name="login">Login</string>
+    <string name="validator_email">Email Tidak Boleh Kosong !</string>
+    <string name="validator_password">Password Tidak Boleh Kosong</string>
+    <string name="matcher">Mohon Masukkan Email Yang Benar</string>
+    <string name="success_login">Login Berhasil</string>
+    <string name="user_not_found">User Tidak Ditemukan</string>
 </resources>

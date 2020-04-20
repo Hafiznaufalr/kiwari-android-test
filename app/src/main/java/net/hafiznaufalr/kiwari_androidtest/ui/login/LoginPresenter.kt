@@ -16,14 +16,15 @@ class LoginPresenter: BasePresenter<LoginContract.View>, LoginContract.Presenter
     }
 
     override fun postLogin(email: String, password: String) {
+        view?.showProgress()
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful)return@addOnCompleteListener
-                val user = it.result!!.user
-                view?.onLoginResponse(user)
+                view?.onLoginResponse(it.result!!.user!!.uid)
             }
             .addOnFailureListener {
                 view?.onLoginFailure(it.message!!)
+                view?.hideProgress()
             }
     }
 }
