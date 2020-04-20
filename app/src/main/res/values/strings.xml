@@ -9,4 +9,8 @@
     <string name="matcher">Mohon Masukkan Email Yang Benar</string>
     <string name="success_login">Login Berhasil</string>
     <string name="user_not_found">User Tidak Ditemukan</string>
+    <string name="placeholder">placeholder</string>
+    <string name="belum_ada_chat">Belum Ada Chat</string>
+    <string name="cari_teman">Cari Teman !</string>
+    <string name="find_friends">Find Friends</string>
 </resources>

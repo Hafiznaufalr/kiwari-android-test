@@ -1,16 +1,16 @@
-package net.hafiznaufalr.kiwari_androidtest.ui.login
+package net.hafiznaufalr.kiwari_androidtest.ui.find
 
 import net.hafiznaufalr.kiwari_androidtest.data.User
 import net.hafiznaufalr.kiwari_androidtest.ui.base.BasePresenter
 import net.hafiznaufalr.kiwari_androidtest.ui.base.BaseView
 
-interface LoginContract {
+interface FindContract {
     interface View: BaseView<Presenter>{
-        fun onLoginResponse(data: User)
-        fun onLoginFailure(message: String)
+        fun onDataFindResponse(data: List<User>)
+        fun onDataFindFailure(message: String)
     }
 
     interface Presenter: BasePresenter<View>{
-        fun postLogin(email: String, password: String)
+        fun getFindFriends()
     }
 }

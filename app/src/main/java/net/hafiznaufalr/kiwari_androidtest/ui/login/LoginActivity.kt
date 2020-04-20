@@ -11,10 +11,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 import net.hafiznaufalr.kiwari_androidtest.R
 import net.hafiznaufalr.kiwari_androidtest.data.User
 import net.hafiznaufalr.kiwari_androidtest.ui.main.MainActivity
-import net.hafiznaufalr.kiwari_androidtest.util.showToast
-import net.hafiznaufalr.kiwari_androidtest.util.Constant
 import net.hafiznaufalr.kiwari_androidtest.util.Constant.USER_REFERENCE
 import net.hafiznaufalr.kiwari_androidtest.util.Preferences
+import net.hafiznaufalr.kiwari_androidtest.util.showToast
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
     private lateinit var presenter: LoginPresenter
@@ -66,35 +65,13 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         presenter.dropView()
     }
 
-    override fun onLoginResponse(uid: String) {
-        db = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
-        db.child(uid).addListenerForSingleValueEvent(object: ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                showToast(this@LoginActivity, p0.message)
-            }
-
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val user = dataSnapshot.getValue(User::class.java)
-                if (user == null){
-                    showToast(this@LoginActivity, getString(R.string.user_not_found))
-                }else{
-                    if (user.uid == uid){
-                        hideProgress()
-                        showToast(this@LoginActivity, getString(R.string.success_login))
-                        doPreference(user)
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-
-        } )
-    }
-
-    private fun doPreference(user: User) {
-        Preferences.putUser(this, Gson().toJson(user))
+    override fun onLoginResponse(data: User) {
+        showToast(this@LoginActivity, getString(R.string.success_login))
+        Preferences.putUser(this, Gson().toJson(data))
         Preferences.putStatus(this, true)
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onLoginFailure(message: String) {
