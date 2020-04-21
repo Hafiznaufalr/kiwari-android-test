@@ -27,6 +27,7 @@ class ProfileActivity : AppCompatActivity() {
             Preferences.clearUser(this)
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
             showToast(this, getString(R.string.success_logout))
 
         }
