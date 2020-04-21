@@ -3,7 +3,6 @@ package net.hafiznaufalr.kiwari_androidtest.ui.room
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_chat_room.*
 import net.hafiznaufalr.kiwari_androidtest.R

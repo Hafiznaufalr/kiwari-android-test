@@ -8,7 +8,6 @@ import net.hafiznaufalr.kiwari_androidtest.ui.base.BasePresenter
 import net.hafiznaufalr.kiwari_androidtest.util.Constant
 import net.hafiznaufalr.kiwari_androidtest.util.Constant.LATEST_MSG_REFERENCE
 import net.hafiznaufalr.kiwari_androidtest.util.Constant.MESSAGE_REFERENCE
-import net.hafiznaufalr.kiwari_androidtest.util.showToast
 
 class RoomPresenter: BasePresenter<RoomContract.View>, RoomContract.Presenter {
     var view: RoomContract.View? = null
