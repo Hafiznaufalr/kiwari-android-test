@@ -13,4 +13,8 @@
     <string name="belum_ada_chat">Belum Ada Chat</string>
     <string name="cari_teman">Cari Teman !</string>
     <string name="find_friends">Find Friends</string>
+    <string name="ic_back">ic_back</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="tulis_pesan">Tulis Pesan</string>
+    <string name="validate_text">Text Tidak Boleh Kosong</string>
 </resources>

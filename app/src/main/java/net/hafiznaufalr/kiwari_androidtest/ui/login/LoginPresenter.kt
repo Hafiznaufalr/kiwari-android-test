@@ -26,7 +26,7 @@ class LoginPresenter: BasePresenter<LoginContract.View>, LoginContract.Presenter
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (!it.isSuccessful)return@addOnCompleteListener
-                saveToDb(it.result!!.user!!.uid)
+                doPref(it.result!!.user!!.uid)
             }
             .addOnFailureListener {
                 view?.onLoginFailure(it.message!!)
@@ -34,9 +34,9 @@ class LoginPresenter: BasePresenter<LoginContract.View>, LoginContract.Presenter
             }
     }
 
-    private fun saveToDb(uid: String) {
-        val db = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
-        db.child(uid).addListenerForSingleValueEvent(object: ValueEventListener {
+    private fun doPref(uid: String) {
+        val reference = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
+        reference.child(uid).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 view?.onLoginFailure(p0.message)
             }

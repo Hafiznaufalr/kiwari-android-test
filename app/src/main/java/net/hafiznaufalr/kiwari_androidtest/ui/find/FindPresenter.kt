@@ -11,7 +11,7 @@ import net.hafiznaufalr.kiwari_androidtest.util.Constant.USER_REFERENCE
 
 class FindPresenter: BasePresenter<FindContract.View>, FindContract.Presenter{
     var view: FindContract.View? = null
-    private var list: ArrayList<User> = arrayListOf()
+    private var list: MutableList<User> = mutableListOf()
 
     override fun takeView(view: FindContract.View) {
         this.view = view
@@ -21,7 +21,7 @@ class FindPresenter: BasePresenter<FindContract.View>, FindContract.Presenter{
         this.view = null
     }
 
-    override fun getFindFriends() {
+    override fun getFindFriends(currentId: String) {
         view?.showProgress()
         val db = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
         db.addListenerForSingleValueEvent(object: ValueEventListener{
@@ -32,13 +32,16 @@ class FindPresenter: BasePresenter<FindContract.View>, FindContract.Presenter{
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 list.clear()
-                dataSnapshot.children.forEach {
-                    Log.d("TWAG", it.toString())
-                    val data = it.getValue(User::class.java)
-                    list.add(data!!)
-                    view?.onDataFindResponse(list)
-                    view?.hideProgress()
+                dataSnapshot.children.forEach { it ->
+                    it.getValue(User::class.java).let {
+                        if (it!!.uid != currentId) {
+                            list.add(it)
+                        }
+                    }
                 }
+                view?.onDataFindResponse(list)
+                view?.hideProgress()
+
             }
 
         })

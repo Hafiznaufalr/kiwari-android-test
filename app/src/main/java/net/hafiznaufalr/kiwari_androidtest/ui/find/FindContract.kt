@@ -11,6 +11,6 @@ interface FindContract {
     }
 
     interface Presenter: BasePresenter<View>{
-        fun getFindFriends()
+        fun getFindFriends(currentId: String)
     }
 }

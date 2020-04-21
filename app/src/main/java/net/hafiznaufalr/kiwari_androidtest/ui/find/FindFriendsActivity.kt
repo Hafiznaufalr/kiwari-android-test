@@ -1,15 +1,17 @@
 package net.hafiznaufalr.kiwari_androidtest.ui.find
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_find_friends.*
 import net.hafiznaufalr.kiwari_androidtest.R
 import net.hafiznaufalr.kiwari_androidtest.data.User
+import net.hafiznaufalr.kiwari_androidtest.ui.room.ChatRoomActivity
 import net.hafiznaufalr.kiwari_androidtest.util.Preferences
 import net.hafiznaufalr.kiwari_androidtest.util.showToast
 
 class FindFriendsActivity : AppCompatActivity(), FindContract.View {
-    private var listPerson: ArrayList<User> = arrayListOf()
+    private var listPerson: MutableList<User> = mutableListOf()
     private lateinit var adapter: FindAdapter
     private lateinit var presenter: FindContract.Presenter
 
@@ -20,6 +22,13 @@ class FindFriendsActivity : AppCompatActivity(), FindContract.View {
         setupRv()
         getData()
         refresh()
+        doBack()
+    }
+
+    private fun doBack() {
+        ic_back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun refresh() {
@@ -29,12 +38,17 @@ class FindFriendsActivity : AppCompatActivity(), FindContract.View {
     }
 
     private fun getData() {
-        presenter.getFindFriends()
+        val currentId = Preferences.getUser(this)?.uid!!
+        presenter.getFindFriends(currentId)
     }
 
     private fun setupRv() {
-        val currentId = Preferences.getUser(this)?.uid!!
-        adapter = FindAdapter(this, listPerson, currentId)
+        adapter = FindAdapter(this, listPerson){
+            val intent = Intent(this, ChatRoomActivity::class.java)
+            intent.putExtra("OUID", it.uid)
+            startActivity(intent)
+            finish()
+        }
         rv_friends.adapter = adapter
     }
 
