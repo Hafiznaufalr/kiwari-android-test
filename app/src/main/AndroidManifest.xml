@@ -11,13 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.room.ChatRoomActivity"></activity>
-        <activity
-            android:name=".ui.find.FindFriendsActivity"/>
-        <activity
-            android:name=".ui.main.MainActivity"/>
-        <activity
-            android:name=".ui.login.LoginActivity">
+        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.room.ChatRoomActivity" />
+        <activity android:name=".ui.find.FindFriendsActivity" />
+        <activity android:name=".ui.main.MainActivity" />
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

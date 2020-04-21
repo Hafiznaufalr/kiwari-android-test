@@ -14,8 +14,8 @@ import net.hafiznaufalr.kiwari_androidtest.ui.room.ChatRoomActivity
 
 class FindAdapter(
     private val context: Context,
-    private val listPerson: MutableList<User>,
-    private val onClickListener: (User)-> Unit
+    private val listPerson: List<User>,
+    private val onClickListener: (User) -> Unit
 ) : RecyclerView.Adapter<FindAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyHolder {
@@ -28,8 +28,8 @@ class FindAdapter(
         val data = listPerson[position]
         val view = holder.itemView
 
-            view.tv_name.text = data.name
-            Glide.with(context).load(data.avatar).into(view.ci_avatar)
+        view.tv_name.text = data.name
+        Glide.with(context).load(data.avatar).into(view.ci_avatar)
 
 
         view.setOnClickListener {

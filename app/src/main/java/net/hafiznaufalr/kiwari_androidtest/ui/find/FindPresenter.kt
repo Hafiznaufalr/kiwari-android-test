@@ -23,8 +23,8 @@ class FindPresenter: BasePresenter<FindContract.View>, FindContract.Presenter{
 
     override fun getFindFriends(currentId: String) {
         view?.showProgress()
-        val db = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
-        db.addListenerForSingleValueEvent(object: ValueEventListener{
+        val reference = FirebaseDatabase.getInstance().getReference(USER_REFERENCE)
+        reference.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 view?.onDataFindFailure(p0.message)
                 view?.hideProgress()

@@ -12,7 +12,7 @@ import net.hafiznaufalr.kiwari_androidtest.util.showToast
 
 class RoomPresenter: BasePresenter<RoomContract.View>, RoomContract.Presenter {
     var view: RoomContract.View? = null
-    private var list: ArrayList<Message> = arrayListOf()
+    private var list: MutableList<Message> = mutableListOf()
 
     override fun takeView(view: RoomContract.View) {
         this.view = view
@@ -31,6 +31,8 @@ class RoomPresenter: BasePresenter<RoomContract.View>, RoomContract.Presenter {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Log.d("SUACK", dataSnapshot.toString())
+
                 if (!dataSnapshot.hasChildren()){
                     view?.hideProgress()
                     view?.disableProgress()

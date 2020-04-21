@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/swipe_main"
     android:background="@android:color/white"
     tools:context=".ui.main.MainActivity">
 
@@ -20,6 +21,16 @@
             android:fontFamily="@font/poppinsbold"
             android:textColor="@android:color/black"
             android:text="@string/app_name"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ic_to_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:src="@drawable/ic_person_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
             />
 
         <LinearLayout
@@ -49,10 +60,11 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_contacts"
+            android:id="@+id/rv_latest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_welcome"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_message"
             />
 

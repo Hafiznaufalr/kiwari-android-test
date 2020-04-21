@@ -15,7 +15,7 @@ import net.hafiznaufalr.kiwari_androidtest.util.showToast
 class ChatRoomActivity : AppCompatActivity(), RoomContract.View {
     private lateinit var presenter: RoomContract.Presenter
     private lateinit var adapter: ChatRoomAdapter
-    private var listMessage: ArrayList<Message> = arrayListOf()
+    private var listMessage: MutableList<Message> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_room)
