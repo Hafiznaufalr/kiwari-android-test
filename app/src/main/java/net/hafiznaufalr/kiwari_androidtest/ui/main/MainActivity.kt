@@ -27,6 +27,13 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         prepareRv()
         fetchIcon()
         actionClick()
+        refresh()
+    }
+
+    private fun refresh() {
+        swipe_main.setOnRefreshListener {
+            getData()
+        }
     }
 
     private fun prepareRv() {

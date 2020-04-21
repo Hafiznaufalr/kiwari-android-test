@@ -3,19 +3,23 @@
     <string name="masukan_email_anda">Masukan email anda</string>
     <string name="masukan_password_anda">Masukan password anda</string>
     <string name="silahkan_masukkan_email_dan_password_anda">Silahkan Masukkan email dan password Anda</string>
-    <string name="login">Login</string>
+    <string name="login">Masuk</string>
     <string name="validator_email">Email Tidak Boleh Kosong !</string>
     <string name="validator_password">Password Tidak Boleh Kosong</string>
     <string name="matcher">Mohon Masukkan Email Yang Benar</string>
-    <string name="success_login">Login Berhasil</string>
+    <string name="success_login">Berhasil Masuk</string>
     <string name="user_not_found">User Tidak Ditemukan</string>
     <string name="placeholder">placeholder</string>
     <string name="belum_ada_chat">Belum Ada Chat</string>
     <string name="cari_teman">Cari Teman !</string>
-    <string name="find_friends">Find Friends</string>
+    <string name="find_friends">Cari Teman</string>
     <string name="ic_back">ic_back</string>
     <string name="type_a_message">Type a message</string>
     <string name="tulis_pesan">Tulis Pesan</string>
     <string name="validate_text">Text Tidak Boleh Kosong</string>
     <string name="icon">icon</string>
+    <string name="profil">Profil</string>
+    <string name="image">image</string>
+    <string name="logout">Keluar</string>
+    <string name="success_logout">Berhasil Keluar</string>
 </resources>

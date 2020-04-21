@@ -1,6 +1,7 @@
 package net.hafiznaufalr.kiwari_androidtest.ui.main
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import net.hafiznaufalr.kiwari_androidtest.R
 import net.hafiznaufalr.kiwari_androidtest.data.Message
 import net.hafiznaufalr.kiwari_androidtest.data.User
 import net.hafiznaufalr.kiwari_androidtest.util.Constant.USER_REFERENCE
+import net.hafiznaufalr.kiwari_androidtest.util.DateUtils
 
 class MainAdapter(
     private val context: Context,
@@ -35,6 +37,7 @@ class MainAdapter(
         val view = holder.itemView
 
         view.tv_latest_message.text = latest.text
+        view.tv_timestamp.text = DateUtils.getFormattedTime(latest.timestamp!!)
 
         val chatPartnerId = if (latest.currentId == currentId) {
             latest.opponentId!!
@@ -45,6 +48,7 @@ class MainAdapter(
         val reference = FirebaseDatabase.getInstance().getReference("$USER_REFERENCE/$chatPartnerId")
         reference.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
+                Log.d("TAG", p0.message)
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -54,7 +58,6 @@ class MainAdapter(
             }
 
         })
-
 
         view.setOnClickListener {
             onClickListener(chatPartnerId)

@@ -59,7 +59,6 @@ class MainPresenter: BasePresenter<MainContract.View>, MainContract.Presenter {
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
-
             }
 
         })

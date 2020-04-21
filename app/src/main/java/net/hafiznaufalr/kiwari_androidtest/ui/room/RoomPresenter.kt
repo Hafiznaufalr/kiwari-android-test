@@ -31,8 +31,7 @@ class RoomPresenter: BasePresenter<RoomContract.View>, RoomContract.Presenter {
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                Log.d("SUACK", dataSnapshot.toString())
-
+                Log.d("TEST", dataSnapshot.toString())
                 if (!dataSnapshot.hasChildren()){
                     view?.hideProgress()
                     view?.disableProgress()

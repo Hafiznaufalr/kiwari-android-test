@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
 import com.google.gson.Gson
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import net.hafiznaufalr.kiwari_androidtest.R
 import net.hafiznaufalr.kiwari_androidtest.data.User
 import net.hafiznaufalr.kiwari_androidtest.ui.main.MainActivity
-import net.hafiznaufalr.kiwari_androidtest.util.Constant.USER_REFERENCE
 import net.hafiznaufalr.kiwari_androidtest.util.Preferences
 import net.hafiznaufalr.kiwari_androidtest.util.showToast
 

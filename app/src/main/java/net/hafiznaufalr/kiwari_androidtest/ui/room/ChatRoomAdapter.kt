@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.item_current.view.*
 import kotlinx.android.synthetic.main.item_opponent.view.*
 import net.hafiznaufalr.kiwari_androidtest.R
 import net.hafiznaufalr.kiwari_androidtest.data.Message
+import net.hafiznaufalr.kiwari_androidtest.util.DateUtils.getFormattedTimeChatLog
 
 class ChatRoomAdapter(
     private val context: Context,
@@ -43,11 +44,11 @@ class ChatRoomAdapter(
            when (holder.itemViewType) {
             ITEM_VIEW_TYPE_CURRENT -> {
                 view.tv_current_text.text = data.text
-                view.tv_current_time.text = data.timestamp.toString()
+                view.tv_current_time.text = getFormattedTimeChatLog(data.timestamp!!)
             }
             ITEM_VIEW_TYPE_OPPONENT -> {
                 view.tv_opponent_text.text = data.text
-                view.tv_opponent_time.text = data.timestamp.toString()
+                view.tv_opponent_time.text = getFormattedTimeChatLog(data.timestamp!!)
             }
         }
 
